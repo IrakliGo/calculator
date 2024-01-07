@@ -1,3 +1,4 @@
+/*make everything center and column*/
 body {
     display: flex;
    justify-content: center;
@@ -7,6 +8,7 @@ body {
    height: 100vh;
 }
 
+/*buttons width*/
 .btn {
     width: 75px;
     height: 75px;
@@ -14,6 +16,7 @@ body {
     font-size: 40px;
 }
 
+/*borders and hovers*/
 .number {
     border: 1px solid green;
     border-radius: 10px;
@@ -67,12 +70,14 @@ body {
    color: white;
 }
 
+/*making clear button and container for numbers flex*/
 .first-row {
     display: flex;
     align-items: center;
     
 }
 
+/*creating screen for answers/numbers*/
 
 .screen {
     width: 300px;
@@ -83,6 +88,8 @@ body {
     flex-direction: column;
     align-items: end;
 }
+
+/*upper and bottom number style*/
 
 .previous {
     font-size: 20px;

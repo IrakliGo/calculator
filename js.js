@@ -1,9 +1,11 @@
+//empty variables for dom
 let currentValue =''
 let previousValue = ''
 let operator = ''
-document.addEventListener('DOMContentLoaded', () => {
-//connect to them
 
+//what will happen once site is refreshed
+document.addEventListener('DOMContentLoaded', () => {
+//connecting to html tags basic dom manipulation
 let previousScreen = document.querySelector('.previous')
 let currentScreen = document.querySelector('.current')
 let numbers = document.querySelectorAll('.number')
@@ -12,18 +14,21 @@ let clear = document.querySelector('.clear')
 let equal = document.querySelector('.equal')
 let decimal = document.querySelector('.decimal')
 
+
+//what will happen once u click on the number
 numbers.forEach((number) => number.addEventListener('click', (e) => {
     handleNumber(e.target.textContent)
     currentScreen.textContent = currentValue
 }))
 
+//what will happen once u click on the operator
 operators.forEach((op) => op.addEventListener('click', (e) => {
     handleOperator(e.target.textContent)
     previousScreen.textContent = previousValue + operator
     currentScreen.textContent =''
 }))
 
-
+//what will happen once u click on the clear button
 clear.addEventListener('click', () => {
     previousValue=''
     currentValue=''
@@ -32,7 +37,7 @@ clear.addEventListener('click', () => {
     operator =''
 })
 
-
+//what will happen once u click on the equal button
 equal.addEventListener('click', () => {
     if(currentValue!= '' && previousValue!='') {
         calculate()
@@ -52,11 +57,14 @@ equal.addEventListener('click', () => {
    
 })
 
+//what will happen once u click on the decimal
 decimal.addEventListener('click', () => {
     makeDecimal()
 })
+
 })
 
+//showing number on screen
 function handleNumber(n) {
     if(currentValue.length<=5) {
         currentValue+=n
@@ -64,12 +72,14 @@ function handleNumber(n) {
  
 }
 
+//showing operator on screen
 function handleOperator(p) {
 operator = p
 previousValue = currentValue
 currentValue =''
 }
 
+//basic arithmetic operations 
 function calculate() {
     previousValue = Number(previousValue)
     currentValue = Number(currentValue)
@@ -97,12 +107,13 @@ function calculate() {
 
 }
 
-
+//rounding number so when u do 1/10000, it wont show 0.00000. it will just show 0
 function a(r) {
  return  Math.round(r *1000)/1000
 }
 
 
+//showing decimal on screen
 function makeDecimal() {
     if(currentValue !== ".") {
         currentValue+='.'
